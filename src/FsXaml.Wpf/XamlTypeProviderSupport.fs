@@ -20,7 +20,7 @@ type XamlFileAccessor(root : FrameworkElement) =
     member this.GetChild name = 
         match dict.TryGetValue name with
         | true,element -> element
-        | false,element -> 
+        | false,_ -> 
             let element = root.FindName name
             dict.[name] <- element
             element
